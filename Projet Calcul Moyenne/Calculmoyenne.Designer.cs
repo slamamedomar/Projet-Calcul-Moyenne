@@ -63,6 +63,7 @@
             this.txt_NoteDS.Size = new System.Drawing.Size(178, 22);
             this.txt_NoteDS.TabIndex = 1;
             this.txt_NoteDS.TextChanged += new System.EventHandler(this.txt_NoteDS_TextChanged);
+            this.txt_NoteDS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_NoteDS_KeyPress);
             // 
             // txt_NoteTP
             // 
@@ -72,6 +73,7 @@
             this.txt_NoteTP.Size = new System.Drawing.Size(178, 22);
             this.txt_NoteTP.TabIndex = 2;
             this.txt_NoteTP.TextChanged += new System.EventHandler(this.txt_NoteTP_TextChanged);
+            this.txt_NoteTP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_NoteTP_KeyPress);
             // 
             // txt_NoteExamen
             // 
@@ -81,6 +83,7 @@
             this.txt_NoteExamen.Size = new System.Drawing.Size(178, 22);
             this.txt_NoteExamen.TabIndex = 3;
             this.txt_NoteExamen.TextChanged += new System.EventHandler(this.txt_NoteExamen_TextChanged);
+            this.txt_NoteExamen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_NoteExamen_KeyPress);
             // 
             // txt_Coef
             // 
@@ -90,6 +93,7 @@
             this.txt_Coef.Size = new System.Drawing.Size(178, 22);
             this.txt_Coef.TabIndex = 4;
             this.txt_Coef.TextChanged += new System.EventHandler(this.txt_Coef_TextChanged);
+            this.txt_Coef.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Coef_KeyPress);
             // 
             // txt_Moyenne
             // 

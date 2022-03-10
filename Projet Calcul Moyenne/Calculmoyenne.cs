@@ -13,7 +13,6 @@ namespace Projet_Calcul_Moyenne
 
     public partial class CalculMoyenne : Form
     {
-        private int enCalculer; //enable btn calculer si enCalculer = 5
 
         public CalculMoyenne()
         {
@@ -24,45 +23,63 @@ namespace Projet_Calcul_Moyenne
 
         }
 
+       
 
-
-        private void txt_Moyenne_TextChanged(object sender, EventArgs e)
+            private void txt_Moyenne_TextChanged(object sender, EventArgs e)
         {
-            string textboxValue = txt_Moyenne.Text;
-            decimal Moyenne = decimal.Parse(textboxValue);
+            
 
 
         }
 
         private void txt_NomPrenom_TextChanged(object sender, EventArgs e)
         {
-            String nomprenom = txt_NomPrenom.Text;
+            if (txt_NomPrenom.Text.Trim() == "" || string.IsNullOrEmpty(txt_NoteDS.Text) || string.IsNullOrEmpty(txt_NoteTP.Text) || string.IsNullOrEmpty(txt_NoteExamen.Text) || string.IsNullOrEmpty(txt_Coef.Text))
 
+                btn_Calculer.Enabled = false;
+
+            else
+
+                btn_Calculer.Enabled = true;
         }
 
         private void txt_NoteDS_TextChanged(object sender, EventArgs e)
         {
-            string textboxValue = txt_NoteDS.Text;
-            decimal noteDs = decimal.Parse(textboxValue);
+            if (txt_NomPrenom.Text.Trim() == "" || string.IsNullOrEmpty(txt_NoteDS.Text) || string.IsNullOrEmpty(txt_NoteTP.Text) || string.IsNullOrEmpty(txt_NoteExamen.Text) || string.IsNullOrEmpty(txt_Coef.Text))
+
+                btn_Calculer.Enabled = false;
+
+            else
+
+                btn_Calculer.Enabled = true;
         }
 
         private void txt_NoteTP_TextChanged(object sender, EventArgs e)
         {
-            string textboxValue = txt_NoteTP.Text;
-            decimal NoteTP = decimal.Parse(textboxValue);
+            if (txt_NomPrenom.Text.Trim() == "" || string.IsNullOrEmpty(txt_NoteDS.Text) || string.IsNullOrEmpty(txt_NoteTP.Text) || string.IsNullOrEmpty(txt_NoteExamen.Text) || string.IsNullOrEmpty(txt_Coef.Text))
+
+                btn_Calculer.Enabled = false;
+
+            else
+
+                btn_Calculer.Enabled = true;
         }
 
         private void txt_NoteExamen_TextChanged(object sender, EventArgs e)
         {
-            string textboxValue = txt_NoteExamen.Text;
-            decimal NoteExamen = decimal.Parse(textboxValue);
+            if (txt_NomPrenom.Text.Trim() == "" || string.IsNullOrEmpty(txt_NoteDS.Text) || string.IsNullOrEmpty(txt_NoteTP.Text) || string.IsNullOrEmpty(txt_NoteExamen.Text) || string.IsNullOrEmpty(txt_Coef.Text))
+
+                btn_Calculer.Enabled = false;
+
+            else
+
+                btn_Calculer.Enabled = true;
         }
 
         private void txt_Coef_TextChanged(object sender, EventArgs e)
         {
-            string textboxValue = txt_Coef.Text;
-            decimal Coef = decimal.Parse(textboxValue);
-            if (string.IsNullOrEmpty(txt_NomPrenom.Text.Trim()) && string.IsNullOrEmpty(txt_NoteDS.Text) && string.IsNullOrEmpty(txt_NoteTP.Text) && string.IsNullOrEmpty(txt_NoteExamen.Text) && string.IsNullOrEmpty(txt_Coef.Text))
+            
+            if (txt_NomPrenom.Text.Trim()=="" || string.IsNullOrEmpty(txt_NoteDS.Text) || string.IsNullOrEmpty(txt_NoteTP.Text) || string.IsNullOrEmpty(txt_NoteExamen.Text) || string.IsNullOrEmpty(txt_Coef.Text))
 
                 btn_Calculer.Enabled = false;
 
@@ -72,8 +89,11 @@ namespace Projet_Calcul_Moyenne
 
         }
 
+
         private void btn_Calculer_Click(object sender, EventArgs e)
         {
+           
+            
             double noteDs;
             double noteTP;
             double noteExamen;
@@ -97,12 +117,11 @@ namespace Projet_Calcul_Moyenne
             lst_Moyenne.MultiColumn = true;
             lst_Moyenne.Items.Add( txt_NomPrenom.Text.Trim()+"         |          "+ txt_Moyenne.Text.Trim());
             txt_NomPrenom.Text = null;
-            double d = 0.00;
-            txt_NoteDS.Text = d.ToString("0.00");
-            txt_NoteTP.Text = d.ToString("0.00");
-            txt_NoteExamen.Text = d.ToString("0.00");
-            txt_Moyenne.Text = d.ToString("0.00");
-            txt_Coef.Text = d.ToString("0.00");
+            txt_NoteDS.Text = null;
+            txt_NoteTP.Text = null;
+            txt_NoteExamen.Text = null;
+            txt_Moyenne.Text = null;
+            txt_Coef.Text = null;
             txt_Moyenne.Enabled = false;
             btn_Ajouter.Enabled = false;
             btn_Calculer.Enabled = false;
@@ -120,6 +139,38 @@ namespace Projet_Calcul_Moyenne
             lst_Moyenne.Items.Remove(lst_Moyenne.SelectedItem);
             btn_Supprimer.Enabled = false;
 
+        }
+
+        private void txt_NoteDS_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_NoteTP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_NoteExamen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_Coef_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
         }
     }
 }
