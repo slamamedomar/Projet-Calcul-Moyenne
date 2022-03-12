@@ -231,6 +231,7 @@
             this.Controls.Add(this.txt_NomPrenom);
             this.Name = "CalculMoyenne";
             this.Text = "Calcul Moyenne";
+            this.Load += new System.EventHandler(this.CalculMoyenne_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

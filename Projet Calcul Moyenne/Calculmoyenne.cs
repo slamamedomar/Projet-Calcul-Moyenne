@@ -34,58 +34,33 @@ namespace Projet_Calcul_Moyenne
 
         private void txt_NomPrenom_TextChanged(object sender, EventArgs e)
         {
-            if (txt_NomPrenom.Text.Trim() == "" || string.IsNullOrEmpty(txt_NoteDS.Text) || string.IsNullOrEmpty(txt_NoteTP.Text) || string.IsNullOrEmpty(txt_NoteExamen.Text) || string.IsNullOrEmpty(txt_Coef.Text))
+            verif_vide(); //Permet de verifier si l'un des text box est vide
 
-                btn_Calculer.Enabled = false;
-
-            else
-
-                btn_Calculer.Enabled = true;
         }
 
         private void txt_NoteDS_TextChanged(object sender, EventArgs e)
         {
-            if (txt_NomPrenom.Text.Trim() == "" || string.IsNullOrEmpty(txt_NoteDS.Text) || string.IsNullOrEmpty(txt_NoteTP.Text) || string.IsNullOrEmpty(txt_NoteExamen.Text) || string.IsNullOrEmpty(txt_Coef.Text))
+            verif_vide();
 
-                btn_Calculer.Enabled = false;
-
-            else
-
-                btn_Calculer.Enabled = true;
         }
 
         private void txt_NoteTP_TextChanged(object sender, EventArgs e)
         {
-            if (txt_NomPrenom.Text.Trim() == "" || string.IsNullOrEmpty(txt_NoteDS.Text) || string.IsNullOrEmpty(txt_NoteTP.Text) || string.IsNullOrEmpty(txt_NoteExamen.Text) || string.IsNullOrEmpty(txt_Coef.Text))
+            verif_vide();
 
-                btn_Calculer.Enabled = false;
-
-            else
-
-                btn_Calculer.Enabled = true;
         }
 
         private void txt_NoteExamen_TextChanged(object sender, EventArgs e)
         {
-            if (txt_NomPrenom.Text.Trim() == "" || string.IsNullOrEmpty(txt_NoteDS.Text) || string.IsNullOrEmpty(txt_NoteTP.Text) || string.IsNullOrEmpty(txt_NoteExamen.Text) || string.IsNullOrEmpty(txt_Coef.Text))
+            verif_vide();
 
-                btn_Calculer.Enabled = false;
-
-            else
-
-                btn_Calculer.Enabled = true;
         }
 
         private void txt_Coef_TextChanged(object sender, EventArgs e)
         {
-            
-            if (txt_NomPrenom.Text.Trim()=="" || string.IsNullOrEmpty(txt_NoteDS.Text) || string.IsNullOrEmpty(txt_NoteTP.Text) || string.IsNullOrEmpty(txt_NoteExamen.Text) || string.IsNullOrEmpty(txt_Coef.Text))
+            verif_vide();
 
-                btn_Calculer.Enabled = false;
 
-            else
-
-                btn_Calculer.Enabled = true;
 
         }
 
@@ -143,34 +118,47 @@ namespace Projet_Calcul_Moyenne
 
         private void txt_NoteDS_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
+            only_reals(e);
+
         }
 
         private void txt_NoteTP_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
+            only_reals(e);
+
         }
 
         private void txt_NoteExamen_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
+            only_reals(e);
+
         }
 
         private void txt_Coef_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            only_reals(e);
+        }
+        private void only_reals(KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
             }
+        }
+        private void verif_vide ()
+        {
+            if (txt_NomPrenom.Text.Trim() == "" || string.IsNullOrEmpty(txt_NoteDS.Text) || string.IsNullOrEmpty(txt_NoteTP.Text) || string.IsNullOrEmpty(txt_NoteExamen.Text) || string.IsNullOrEmpty(txt_Coef.Text))
+
+                btn_Calculer.Enabled = false;
+
+            else
+
+                btn_Calculer.Enabled = true;
+        }
+
+        private void CalculMoyenne_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
